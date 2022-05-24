@@ -1,8 +1,8 @@
 name: 'validate-detections'
-description: 'Validate Microsoft Sentinel ARM Templates for Analytics Rules'
+description: 'Validate Microsoft Sentinel Analytics Rules. support filetypes are ARM templates (json) and yml files'
 inputs:
   filesPath:
-    description:  'The path to test the ARM template files'
+    description:  'The path containing the detection rules.'
     required: false
     default: '.'
 
