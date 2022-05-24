@@ -1,0 +1,13 @@
+name: 'Test-Detections'
+description: 'Validate Microsoft Sentinel ARM Templates for Analytics Rules'
+inputs:
+  filesPath:
+    description:  'The path to test the ARM template files'
+    required: false
+    default: '.'
+
+runs:
+  using: "composite"
+  steps:
+    - run: ${{ github.action_path }}/action.ps1 -FilesPath ${{ inputs.filesPath }}
+      shell: pwsh
