@@ -1,4 +1,4 @@
-name: 'test-detections'
+name: 'validate-detections'
 description: 'Validate Microsoft Sentinel ARM Templates for Analytics Rules'
 inputs:
   filesPath:
