@@ -1,3 +1,6 @@
+![logo](https://raw.githubusercontent.com/SecureHats/SecureHacks/main/media/sh-banners.png)
+=========
+[![Maintenance](https://img.shields.io/maintenance/yes/2022.svg?style=flat-square)]()
 # Analytics Rules Validator
 
 This GitHub action can be used to validate Microsoft Sentinel Analytics rules in both JSON and YML format.
