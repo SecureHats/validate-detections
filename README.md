@@ -4,7 +4,7 @@
 # Analytics Rules Validator
 
 This GitHub action can be used to validate Microsoft Sentinel Analytics rules in both JSON and YML format.
-Add the following code block to your Github workflow:
+>Add the following code block to your Github workflow:
 
 ```yaml
 name: Analytics
@@ -12,13 +12,13 @@ on: push
 
 jobs:
   pester-test:
-    name: Validate Detections
+    name: validate detections
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
       - name: Validate Sentinel Analytics Rules
-        uses: SecureHats/validate-detections@v1.2.0
+        uses: SecureHats/validate-detections@v1
         with:
           filesPath: templates
 ```
