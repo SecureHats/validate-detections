@@ -214,7 +214,9 @@ Describe "Detections" {
                 'Collection',
                 'CommandandControl',
                 'Exfiltration',
-                'Impact'
+                'Impact',
+                'ImpairProcessControl',
+                'InhibitResponseFunction'
             )
             foreach ($tactic in $properties.tactics) {
                 $tactic | Should -BeIn $expectedTactics
