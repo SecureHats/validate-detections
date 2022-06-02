@@ -5,6 +5,10 @@ inputs:
     description:  'The path containing the detection rules.'
     required: false
     default: '.'
+  logLevel:
+    description:  'Verbosity level of the test results (see documentation).'
+    required: false
+    default: 'Normal'
 
 runs:
   using: "composite"
