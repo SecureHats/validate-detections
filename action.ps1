@@ -1,6 +1,9 @@
 param (
     [parameter(Mandatory = $false)]
-    [string]$FilesPath
+    [string]$FilesPath,
+    
+    [parameter(Mandatory = $false)]
+    [string]$logLevel
 )
 
 ## Make sure any modules we depend on are installed
@@ -36,7 +39,7 @@ $PesterConfig = [PesterConfiguration]@{
         Path = "$($PSScriptRoot)"
     }
     Output      = @{
-        Verbosity = 'Detailed'
+        Verbosity = "$logLevel"
     }
     TestResults = @{
         OutputFormat = 'NuUnitXml'
