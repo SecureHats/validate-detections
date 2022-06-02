@@ -22,13 +22,11 @@ $modulesToInstall | ForEach-Object {
 }
 
 # Import Mitre Att&ck mapping
-Write-Output  "Looking for mitre framework file [mitre.csv]"
-
 Write-Output 'Loading Mitre Att&ck framework'
 $global:attack = (Get-ChildItem -Path "$($PSScriptRoot)\mitre.csv" -Recurse | Get-Content | ConvertFrom-CSV)
 
 if ($FilesPath -ne '.') {
-    Write-Output  "Files path is [$FilesPath]"
+    Write-Output  "Selected filespath is [$FilesPath]"
     Get-ChildItem "*.tests.ps1" | Copy-Item -Destination $FilesPath -Force
     $global:detectionsPath = $FilesPath
 }
