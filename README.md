@@ -21,6 +21,7 @@ jobs:
         uses: SecureHats/validate-detections@v1
         with:
           filesPath: templates
+          logLevel: Minimal
 ```
 
 ### Inputs
