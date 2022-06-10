@@ -18,7 +18,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
       - name: Validate Sentinel Analytics Rules
-        uses: SecureHats/validate-detections@v1
+        uses: SecureHats/validate-detections@v1.3.0
         with:
           filesPath: templates
           logLevel: Minimal
