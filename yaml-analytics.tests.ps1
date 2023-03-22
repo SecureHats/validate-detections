@@ -11,7 +11,7 @@ $script:regEx_lowerCase = "^[a-z]*$"
 $script:regEx_Guid = '^[{]?[0-9a-fA-F]{8}-([0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}[}]?$'
 
 # Validation for value between 0 and 10000
-$script:regEx_MaxValue = '^([0-9]{1}[0-0]{0,0}|1([0-9]{1,3})|10000)$'
+$script:regEx_MaxValue = '^([0-9]|[1-9][0-9]|[1-9][0-9][0-9]|[1-9][0-9][0-9][0-9]|10000)$'
 
 # Validation for Mitre Technique with subvalue (T1078) or (T1078.001)
 $script:regEx_Technique = '^(([T0-9]{5}))+(?:[.0-9]{4})?$'
