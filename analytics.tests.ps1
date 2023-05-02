@@ -301,7 +301,11 @@ Describe "Detections" {
             )
             $tactics = $properties.tactics
             $relevantTechniques = $properties.techniques
-
+            
+            $relevantTechniques = foreach ($relevantTechnique in $relevantTechniques) {
+                $relevantTechnique -replace '\..*$'
+            }
+            
             if ($null -ne $relevantTechniques) {
                 foreach ($tactic in $tactics) {
                     $techniques = @( $attack | Where-Object tactics -like "*$tactic*" ).id -split ',' | Sort-Object -Descending -Unique
