@@ -24,9 +24,20 @@ $modulesToInstall | ForEach-Object {
     Import-Module $_ -Force
 }
 
+## Install NuGet for KQL parsing
+## https://stackoverflow.com/questions/70166382/validate-kusto-query-before-submitting-it
+Write-Output "Install PackageProvider NuGet"
+Install-PackageProvider -Name NuGet -Scope CurrentUser -Force
+Write-Output "Register PackageSource nuget.org"
+Register-PackageSource -Name nuget.org -ProviderName NuGet  -Location https://www.nuget.org/api/v2 -Force
+
 # Import Mitre Att&ck mapping
 Write-Output 'Loading Mitre Att&ck framework'
 $global:attack = (Get-ChildItem -Path "$($PSScriptRoot)\mitre.csv" -Recurse | Get-Content | ConvertFrom-CSV)
+
+$nuGetPath=Get-Package -Name "Microsoft.Azure.Kusto.Language" | Select-Object -ExpandProperty Source
+$dllPath=(Split-Path -Path $nuGetPath) + "\lib\netstandard2.0\Kusto.Language.dll"
+[System.Reflection.Assembly]::LoadFrom($dllPath) | Out-Null
 
 if ($FilesPath -ne '.') {
     Write-Output  "Selected filespath is [$FilesPath]"
