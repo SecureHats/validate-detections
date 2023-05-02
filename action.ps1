@@ -28,6 +28,7 @@ $modulesToInstall | ForEach-Object {
 ## https://stackoverflow.com/questions/70166382/validate-kusto-query-before-submitting-it
 # Write-Output "Install PackageProvider NuGet"
 # Install-PackageProvider -Name NuGet -Scope CurrentUser -Force
+Import-PackageProvider -Name NuGet
 Write-Output "Register PackageSource nuget.org"
 Register-PackageSource -Name nuget.org -ProviderName NuGet  -Location https://www.nuget.org/api/v2 -Force
 
