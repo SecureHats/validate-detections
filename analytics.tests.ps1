@@ -88,6 +88,19 @@ Describe "Detections" {
 
     }
 
+    Context "KQL Syntax" {
+
+        It 'Is properties use camelCasing | <Name>' -TestCases $testCases {
+            param (
+                $file,
+                $properties
+            )
+
+            $kustoParsing=[Kusto.Language.KustoCode]::Parse($properties.query)
+            $kustoParsing.getDiagnostics() | Should -BeNullOrEmpty
+        }
+    }
+    
     Context "Properties" {
 
         It 'Do properties use camelCasing | <Name>' -TestCases $testCases {
