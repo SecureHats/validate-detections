@@ -3,7 +3,7 @@ param (
     [string]$FilesPath,
     
     [parameter(Mandatory = $false)]
-    [string]$logLevel
+    [string]$logLevel = "Normal"
 )
 
 ## Make sure any modules we depend on are installed
@@ -30,7 +30,7 @@ $global:attack = (Get-ChildItem -Path "$($PSScriptRoot)\mitre.csv" -Recurse | Ge
 
 if ($FilesPath -ne '.') {
     Write-Output  "Selected filespath is [$FilesPath]"
-    Get-ChildItem "*.tests.ps1" | Copy-Item -Destination $FilesPath -Force
+    $copiedFiles = Get-ChildItem "*.tests.ps1" | Copy-Item -Destination $FilesPath -Force -PassThru
     $global:detectionsPath = $FilesPath
 }
 
@@ -51,3 +51,6 @@ $PesterConfig = [PesterConfiguration]@{
 }
 
 Invoke-Pester -Configuration $PesterConfig
+
+# Cleanup test file
+$copiedFiles | Remove-Item -Force
