@@ -272,7 +272,11 @@ Describe "Detections" {
             )
             $tactics = $yamlObject.tactics
             $relevantTechniques = $yamlObject.relevantTechniques
-
+            
+            $relevantTechniques = foreach ($relevantTechnique in $relevantTechniques) {
+                $relevantTechnique -replace '\..*$'
+            }
+            
             if ($null -ne $relevantTechniques) {
                 foreach ($tactic in $tactics) {
                     $techniques = @( $attack | Where-Object tactics -like "*$tactic*" ).id -split ',' | Sort-Object -Descending -Unique
@@ -364,7 +368,7 @@ Describe "Detections" {
                 $yamlObject
             )
 
-            if($yamlObject.kind -eq 'Scheduled') {
+            if ($yamlObject.kind -eq 'Scheduled') {
                 $yamlObject.queryFrequency | Should -MatchExactly $regEx_yamlTime
             }
         }
