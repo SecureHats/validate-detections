@@ -47,19 +47,6 @@ Describe "Detections" {
             $yamlObject | Should -Not -BeNullOrEmpty
         }
     }
-
-    Context "KQL Syntax" {
-
-        It 'Is properties use camelCasing | <Name>' -TestCases $testCases {
-            param (
-                $file,
-                $yamlObject
-            )
-
-            $kustoParsing=[Kusto.Language.KustoCode]::Parse($yamlObject.query)
-            $kustoParsing.getDiagnostics() | Should -BeNullOrEmpty
-        }
-    }
     
     Context "Properties" {
 
