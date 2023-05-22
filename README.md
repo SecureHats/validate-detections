@@ -1,6 +1,10 @@
 ![logo](https://raw.githubusercontent.com/SecureHats/SecureHacks/main/media/sh-banners.png)
 =========
 [![Maintenance](https://img.shields.io/maintenance/yes/2023.svg?style=flat-square)]()
+[![Good First Issues](https://img.shields.io/github/issues/SecureHats/validate-detections/good%20first%20issue?color=important&label=good%20first%20issue&style=flat)](https://github.com/SecureHats/kusto-aliasvalidate-detections/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22)
+[![Needs Feedback](https://img.shields.io/github/issues/SecureHats/validate-detections/needs%20feedback?color=blue&label=needs%20feedback%20&style=flat)](https://github.com/SecureHats/validate-detections/issues?q=is%3Aopen+is%3Aissue+label%3A%22needs+feedback%22)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/SecureHats/kusto-alias)](https://github.com/SecureHats/validate-detections/releases/latest)
+
 # Microsoft Sentinel - Analytics Rules Validator
 
 This GitHub action can be used to validate Microsoft Sentinel Analytics rules in both JSON and YML format.
@@ -21,7 +25,7 @@ jobs:
         uses: SecureHats/validate-detections@v2
         with:
           filesPath: templates
-          logLevel: Minimal
+          logLevel: Normal
 ```
 
 ### Inputs
